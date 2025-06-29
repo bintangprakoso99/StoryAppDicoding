@@ -11,12 +11,15 @@ export class SettingsView {
   render() {
     this.container.innerHTML = `
       <section role="main" aria-labelledby="settings-heading">
-        <h1 id="settings-heading">Settings</h1>
+        <div class="page-header">
+          <h1 id="settings-heading">Settings</h1>
+        </div>
+        
         <div id="message" class="success" style="display: none;" role="alert" aria-live="polite"></div>
         
         <div class="settings-container">
           <div class="settings-section">
-            <h2>Notifications</h2>
+            <h2>🔔 Notifications</h2>
             <div class="setting-item">
               <label for="notification-toggle" class="setting-label">
                 <input 
@@ -33,7 +36,7 @@ export class SettingsView {
           </div>
           
           <div class="settings-section">
-            <h2>Privacy</h2>
+            <h2>🔒 Privacy</h2>
             <div class="setting-item">
               <label for="location-toggle" class="setting-label">
                 <input 
@@ -51,7 +54,7 @@ export class SettingsView {
           </div>
           
           <div class="settings-section">
-            <h2>Display</h2>
+            <h2>🎨 Display</h2>
             <div class="setting-item">
               <label for="dark-mode-toggle" class="setting-label">
                 <input 
@@ -68,7 +71,7 @@ export class SettingsView {
           </div>
           
           <div class="settings-section">
-            <h2>Data Management</h2>
+            <h2>💾 Data Management</h2>
             <div class="setting-item">
               <button id="clear-cache-btn" class="btn btn-danger">
                 🗑️ Clear Cache
@@ -89,12 +92,22 @@ export class SettingsView {
           </div>
           
           <div class="settings-section">
-            <h2>About</h2>
+            <h2>ℹ️ About</h2>
             <div class="about-info">
               <p><strong>Dicoding Stories</strong></p>
               <p>Version: 1.0.0</p>
               <p>A story sharing platform for the Dicoding community</p>
               <p>Built with ❤️ using vanilla JavaScript and modern web technologies</p>
+              <br>
+              <p><strong>Features:</strong></p>
+              <ul>
+                <li>📱 Progressive Web App (PWA)</li>
+                <li>🔔 Push Notifications</li>
+                <li>📍 Location-based Stories</li>
+                <li>❤️ Favorites System</li>
+                <li>🌙 Dark Mode</li>
+                <li>📱 Offline Support</li>
+              </ul>
             </div>
           </div>
         </div>

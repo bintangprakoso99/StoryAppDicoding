@@ -27,14 +27,23 @@ export class HomeView {
     `
   }
 
-  render(stories) {
+  render(stories = []) {
     this.container.innerHTML = `
       <section role="main" aria-labelledby="stories-heading">
-        <h1 id="stories-heading">Latest Stories</h1>
+        <div class="page-header">
+          <h1 id="stories-heading">Latest Stories</h1>
+          <div class="page-actions">
+            <a href="#/add-story" class="btn btn-primary">
+              ➕ Add New Story
+            </a>
+          </div>
+        </div>
+        
         <div class="stories-grid" role="list">
           ${this.renderStories(stories)}
         </div>
-        <section aria-labelledby="map-heading">
+        
+        <section aria-labelledby="map-heading" style="margin-top: 3rem;">
           <h2 id="map-heading">Story Locations</h2>
           <div id="stories-map" class="map-container" role="application" aria-label="Interactive map showing story locations"></div>
         </section>
@@ -44,7 +53,14 @@ export class HomeView {
 
   renderStories(stories) {
     if (stories.length === 0) {
-      return "<p>No stories available.</p>"
+      return `
+        <div class="empty-state">
+          <div class="empty-icon">📚</div>
+          <h2>No Stories Yet</h2>
+          <p>Be the first to share your story with the community!</p>
+          <a href="#/add-story" class="btn btn-primary">Share Your Story</a>
+        </div>
+      `
     }
 
     return stories

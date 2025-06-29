@@ -6,8 +6,8 @@
 - Project: Dicoding Story Single Page Application with PWA Features
 
 ## Deployment URL
-- **Production URL**: [TO BE FILLED AFTER DEPLOYMENT]
-- **GitHub Repository**: [TO BE FILLED]
+- **Production URL**: https://flourishing-platypus-a3910d.netlify.app/
+- **GitHub Repository**: https://github.com/bintangprakoso99/StoryAppDicoding
 
 ## API Integration
 - **Story API**: https://story-api.dicoding.dev/v1

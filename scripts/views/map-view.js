@@ -23,14 +23,16 @@ export class MapView {
     `
   }
 
-  render(storiesCount) {
+  render(storiesCount = 0) {
     this.container.innerHTML = `
       <section role="main" aria-labelledby="map-heading">
-        <h1 id="map-heading">Story Locations Map</h1>
+        <div class="page-header">
+          <h1 id="map-heading">Story Locations Map</h1>
+        </div>
         
         <div class="map-info">
           <p class="map-description">
-            Explore stories from around the world! Click on markers to view story details.
+            🗺️ Explore stories from around the world! Click on markers to view story details.
           </p>
           <div class="map-stats">
             <span class="stat-item">
@@ -66,6 +68,19 @@ export class MapView {
             </div>
           </div>
         </div>
+
+        ${
+          storiesCount === 0
+            ? `
+          <div class="empty-state" style="margin-top: 2rem;">
+            <div class="empty-icon">🗺️</div>
+            <h2>No Stories with Locations Yet</h2>
+            <p>Stories with location data will appear on this map.</p>
+            <a href="#/add-story" class="btn btn-primary">Add Story with Location</a>
+          </div>
+        `
+            : ""
+        }
       </section>
     `
   }

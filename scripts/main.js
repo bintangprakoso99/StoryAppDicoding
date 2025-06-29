@@ -22,6 +22,7 @@ class App {
   }
 
   async init() {
+    console.log("Initializing app...")
     await this.initializePWA()
     this.setupSkipToContent()
     this.setupMobileMenu()
@@ -251,6 +252,7 @@ class App {
   }
 
   setupRoutes() {
+    console.log("Setting up routes...")
     this.router.addRoute("/", () => this.redirectToHome())
     this.router.addRoute("/home", () => this.showPage(HomePage))
     this.router.addRoute("/login", () => this.showPage(LoginPage, false))
@@ -263,25 +265,55 @@ class App {
   }
 
   async showPage(PageClass, ...args) {
-    // Check authentication for protected routes
-    const protectedRoutes = [HomePage, AddStoryPage, MapPage, SettingsPage, FavoritesPage, StoryDetailPage]
-    if (protectedRoutes.includes(PageClass) && !this.authModel.isAuthenticated()) {
-      this.router.navigate("/login")
-      return
-    }
+    console.log("Showing page:", PageClass.name, "with args:", args)
 
-    // Destroy current page
-    if (this.currentPage?.destroy) {
-      this.currentPage.destroy()
-    }
+    try {
+      // Check authentication for protected routes
+      const protectedRoutes = [HomePage, AddStoryPage, MapPage, SettingsPage, FavoritesPage, StoryDetailPage]
+      if (protectedRoutes.includes(PageClass) && !this.authModel.isAuthenticated()) {
+        console.log("User not authenticated, redirecting to login")
+        this.router.navigate("/login")
+        return
+      }
 
-    // Create and render new page
-    this.currentPage = new PageClass(this.router, ...args)
-    await this.currentPage.render()
+      // Show loading state
+      const container = document.getElementById("app-container")
+      container.innerHTML = `
+        <div class="loading-container">
+          <div class="loading">Loading...</div>
+        </div>
+      `
+
+      // Destroy current page
+      if (this.currentPage?.destroy) {
+        this.currentPage.destroy()
+      }
+
+      // Create and render new page
+      this.currentPage = new PageClass(this.router, ...args)
+      console.log("Created page instance:", this.currentPage)
+
+      await this.currentPage.render()
+      console.log("Page rendered successfully")
+    } catch (error) {
+      console.error("Error showing page:", error)
+      const container = document.getElementById("app-container")
+      container.innerHTML = `
+        <div class="error-container">
+          <div class="error">
+            <h2>Oops! Something went wrong</h2>
+            <p>Error: ${error.message}</p>
+            <button onclick="location.reload()" class="btn btn-primary">Reload Page</button>
+          </div>
+        </div>
+      `
+    }
   }
 
   updateNavigation() {
     const isAuthenticated = this.authModel.isAuthenticated()
+    console.log("Updating navigation, authenticated:", isAuthenticated)
+
     const logoutBtn = document.getElementById("logout-btn")
     const homeLink = document.getElementById("home-link")
     const addStoryLink = document.getElementById("add-story-link")
@@ -310,6 +342,7 @@ class App {
 
   checkAuthState() {
     const isAuthenticated = this.authModel.isAuthenticated()
+    console.log("Checking auth state:", isAuthenticated)
     this.updateNavigation()
 
     if (!isAuthenticated && !window.location.hash.includes("login") && !window.location.hash.includes("register")) {
@@ -330,15 +363,18 @@ class App {
 
   setupNavigation() {
     const logoutBtn = document.getElementById("logout-btn")
-    logoutBtn.addEventListener("click", () => {
-      this.authModel.logout()
-      this.updateNavigation()
-      this.router.navigate("/login")
-    })
+    if (logoutBtn) {
+      logoutBtn.addEventListener("click", () => {
+        this.authModel.logout()
+        this.updateNavigation()
+        this.router.navigate("/login")
+      })
+    }
   }
 }
 
 // Initialize app when DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
+  console.log("DOM loaded, initializing app...")
   new App()
 })

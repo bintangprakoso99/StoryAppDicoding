@@ -1080,3 +1080,165 @@ body.dark-mode .auth-switch {
     font-size: 0.8rem;
   }
 }
+
+/* Loading and Error Container Styles */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  padding: 2rem;
+}
+
+.error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  padding: 2rem;
+}
+
+.error-container .error {
+  text-align: center;
+  max-width: 500px;
+}
+
+.error-container .error h2 {
+  color: #e74c3c;
+  margin-bottom: 1rem;
+}
+
+.error-container .error p {
+  margin-bottom: 2rem;
+  color: #666;
+}
+
+body.dark-mode .error-container .error p {
+  color: #aaa;
+}
+
+/* Map Container Large */
+.map-container-large {
+  height: 500px;
+  border-radius: 12px;
+  margin: 2rem 0;
+  border: 2px solid #ddd;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .map-container-large {
+  border-color: #555;
+}
+
+/* Map Info and Controls */
+.map-info {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .map-info {
+  background: #2d2d2d;
+}
+
+.map-description {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+body.dark-mode .map-description {
+  color: #ccc;
+}
+
+.map-stats {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  background: #f0f8ff;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: #2c3e50;
+}
+
+body.dark-mode .stat-item {
+  background: #3d4d5d;
+  color: #e0e0e0;
+}
+
+.map-controls {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.map-legend {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .map-legend {
+  background: #2d2d2d;
+}
+
+.map-legend h2 {
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+body.dark-mode .map-legend h2 {
+  color: #e0e0e0;
+}
+
+.legend-items {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.legend-marker {
+  font-size: 1.2rem;
+}
+
+/* About Info List Styling */
+.about-info ul {
+  margin-top: 1rem;
+  padding-left: 1.5rem;
+}
+
+.about-info li {
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+body.dark-mode .about-info li {
+  color: #ccc;
+}
+
+/* Fullscreen Map */
+.fullscreen-map {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 9999 !important;
+  border-radius: 0 !important;
+  border: none !important;
+}
