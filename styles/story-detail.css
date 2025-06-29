@@ -1,0 +1,367 @@
+/* Story Detail Styles */
+.story-detail {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.story-header {
+  padding: 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-align: center;
+}
+
+.story-header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.story-detail-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  flex: 1;
+}
+
+.story-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.favorite-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.favorite-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.story-date {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.story-image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.story-detail-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.story-detail-image:hover {
+  transform: scale(1.05);
+}
+
+.story-description-container,
+.story-location-container {
+  padding: 2rem;
+}
+
+.story-description-container h2,
+.story-location-container h2 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+body.dark-mode .story-description-container h2,
+body.dark-mode .story-location-container h2 {
+  color: #e0e0e0;
+}
+
+.story-detail-description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+  text-align: justify;
+}
+
+body.dark-mode .story-detail-description {
+  color: #ccc;
+}
+
+.location-coordinates {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #666;
+  text-align: center;
+}
+
+body.dark-mode .location-coordinates {
+  color: #aaa;
+}
+
+.no-location {
+  text-align: center;
+  color: #999;
+  font-style: italic;
+}
+
+body.dark-mode .no-location {
+  color: #777;
+}
+
+/* Image zoom modal */
+.image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.image-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.image-modal img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.image-modal-close {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.image-modal-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Settings Styles */
+.settings-section {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #eee;
+}
+
+.settings-section:last-child {
+  border-bottom: none;
+}
+
+.settings-section h3 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+body.dark-mode .settings-section h3 {
+  color: #e0e0e0;
+}
+
+.setting-item {
+  margin-bottom: 1.5rem;
+}
+
+.setting-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.setting-checkbox {
+  margin-top: 0.25rem;
+  transform: scale(1.2);
+}
+
+.setting-text {
+  color: #333;
+}
+
+body.dark-mode .setting-text {
+  color: #e0e0e0;
+}
+
+.setting-description {
+  margin-top: 0.5rem;
+  margin-left: 2rem;
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+body.dark-mode .setting-description {
+  color: #aaa;
+}
+
+.about-info {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #3498db;
+}
+
+body.dark-mode .about-info {
+  background: #3d3d3d;
+}
+
+.about-info p {
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+body.dark-mode .about-info p {
+  color: #ccc;
+}
+
+.about-info p:last-child {
+  margin-bottom: 0;
+}
+
+/* Enhanced responsive design */
+@media (max-width: 768px) {
+  .story-detail-title {
+    font-size: 1.5rem;
+  }
+
+  .story-header {
+    padding: 1.5rem;
+  }
+
+  .story-header-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .story-actions {
+    justify-content: center;
+  }
+
+  .story-description-container,
+  .story-location-container {
+    padding: 1.5rem;
+  }
+
+  .story-detail-image {
+    height: 250px;
+  }
+
+  .setting-description {
+    margin-left: 1.5rem;
+  }
+}
+
+/* Loading animations */
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.loading {
+  animation: pulse 1.5s ease-in-out infinite;
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.1rem;
+}
+
+/* Enhanced button styles */
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-back:hover {
+  transform: translateX(-4px);
+}
+
+/* Dark mode support for story detail */
+body.dark-mode .story-detail {
+  background: #2d2d2d;
+}
+
+body.dark-mode .story-header {
+  background: linear-gradient(135deg, #4a5568 0%, #553c9a 100%);
+}
+
+/* Focus indicators for better accessibility */
+.story-detail-image:focus,
+.favorite-btn:focus,
+.image-modal-close:focus {
+  outline: 2px solid #3498db;
+  outline-offset: 2px;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .story-detail {
+    border: 2px solid #000;
+  }
+
+  .favorite-btn {
+    border: 2px solid currentColor;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .story-detail-image,
+  .favorite-btn,
+  .image-modal {
+    transition: none;
+  }
+
+  .loading {
+    animation: none;
+  }
+}

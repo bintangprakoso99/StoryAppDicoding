@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dicoding Stories - Share Your Journey</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="description" content="A progressive web app for sharing stories in the Dicoding community with offline support">
+    <meta name="theme-color" content="#3498db">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Dicoding Stories">
+    
+    <!-- Icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/icon-16x16.png">
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
+    
+    <!-- Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/story-detail.css">
+    <link rel="stylesheet" href="styles/add-story.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+    <header role="banner">
+        <!-- Skip to content for accessibility -->
+        <a href="#main-content" class="skip-link">Skip to main content</a>
+        
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+            <div class="nav-brand">
+                <a href="#/home" class="logo-link">
+                    <div class="logo">Dicoding Stories</div>
+                </a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#/home" class="nav-link" aria-label="Go to home page">
+                    🏠 Home
+                </a>
+                <a href="#/add-story" class="nav-link" aria-label="Add new story">
+                    ➕ Add Story
+                </a>
+                <a href="#/map" class="nav-link" aria-label="View stories on map">
+                    🗺️ Map
+                </a>
+                <a href="#/favorites" class="nav-link" aria-label="View favorite stories">
+                    ❤️ Favorites
+                </a>
+                <a href="#/settings" class="nav-link" aria-label="Go to settings">
+                    ⚙️ Settings
+                </a>
+                <button id="logout-btn" class="nav-link btn-logout" style="display: none;" aria-label="Logout from account">
+                    🚪 Logout
+                </button>
+            </div>
+            
+            <!-- Mobile menu toggle -->
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+            </button>
+        </nav>
+    </header>
+
+    <main id="main-content" role="main" tabindex="-1">
+        <div id="app-container">
+            <!-- Content will be dynamically loaded here -->
+        </div>
+    </main>
+
+    <footer role="contentinfo">
+        <p>&copy; 2024 Dicoding Stories. All rights reserved. | 
+        <span id="connection-status">🟢 Online</span></p>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script type="module" src="scripts/main.js"></script>
+</body>
+</html>

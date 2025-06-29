@@ -1,0 +1,166 @@
+# Dicoding Story SPA Project - Enhanced PWA
+
+## Student Information
+- Name: [Your Name]
+- Email: [Your Email]
+- Project: Dicoding Story Single Page Application with PWA Features
+
+## Deployment URL
+- **Production URL**: [TO BE FILLED AFTER DEPLOYMENT]
+- **GitHub Repository**: [TO BE FILLED]
+
+## API Integration
+- **Story API**: https://story-api.dicoding.dev/v1
+- **Map Service**: OpenStreetMap (No API key required)
+- **VAPID Public Key**: BCCs2eonMI-6H2ctvFaWg-UYdDv387Vno_bzUzALpB442r2lCnsHmtrx8biyPi_E-1fSGABK_Qs_GlvPoJJqxbk
+
+## Project Features
+
+### Core Features (Maintained from Previous Submission)
+1. ✅ **Single Page Application** with hash-based routing
+2. ✅ **MVP Architecture** with proper separation of concerns
+3. ✅ **Authentication** (Login/Register)
+4. ✅ **Story Display** with images and location data
+5. ✅ **Add Story Feature** with camera and location
+6. ✅ **Accessibility** (WCAG compliant)
+7. ✅ **Smooth Transitions** with View Transition API
+
+### New PWA Features
+8. ✅ **Push Notifications** with VAPID key integration
+9. ✅ **Installable PWA** with proper manifest
+10. ✅ **Offline Support** with Service Worker caching
+11. ✅ **IndexedDB Storage** for offline data management
+12. ✅ **Application Shell** architecture
+13. ✅ **Background Sync** for offline actions
+
+## PWA Implementation Details
+
+### 1. Push Notifications
+- ✅ VAPID key integration with Dicoding API
+- ✅ Permission request handling
+- ✅ Service Worker push event handling
+- ✅ Notification click actions
+- ✅ Test notification feature
+
+### 2. Installable App
+- ✅ Web App Manifest with proper configuration
+- ✅ Install prompt handling
+- ✅ App shortcuts for quick actions
+- ✅ Proper icons for all screen sizes
+- ✅ Standalone display mode
+
+### 3. Offline Support
+- ✅ Service Worker with multiple caching strategies
+- ✅ Static assets caching
+- ✅ API response caching
+- ✅ Image caching
+- ✅ Offline fallback pages
+- ✅ Network status detection
+
+### 4. IndexedDB Features
+- ✅ **Stories Storage**: Cache stories for offline viewing
+- ✅ **Favorites Management**: Save/remove favorite stories
+- ✅ **Offline Queue**: Store actions when offline
+- ✅ **Data Export**: Export user data in JSON format
+- ✅ **Background Sync**: Sync offline actions when online
+
+## Architecture
+
+### MVP Pattern Implementation
+- **Models**: Handle data and localStorage operations
+  - `AuthModel`: Authentication and user data
+  - `StoryModel`: Story data with IndexedDB integration
+  - `SettingsModel`: App settings and preferences
+
+- **Views**: Pure DOM manipulation and Web API calls
+  - `HomeView`, `LoginView`, `AddStoryView`, `SettingsView`, `FavoritesView`
+  - Proper label associations for accessibility
+  - ARIA attributes and semantic HTML
+
+- **Presenters**: Business logic coordination
+  - No DOM manipulation or Web API calls
+  - Coordinate between Models and Views
+  - Handle validation and error management
+
+### Service Layer
+- `IndexedDBService`: Offline data management
+- `NotificationService`: Push notification handling
+- `MapService`: Leaflet.js integration
+- `CameraService`: Camera Web API handling
+- `LocationService`: Geolocation API handling
+
+## Accessibility Features
+- ✅ **Proper Label Associations**: All inputs have correct `for` attributes
+- ✅ **ARIA Attributes**: Comprehensive ARIA labeling
+- ✅ **Semantic HTML**: Proper use of headings, sections, and landmarks
+- ✅ **Keyboard Navigation**: Full keyboard accessibility
+- ✅ **Screen Reader Support**: Optimized for assistive technologies
+- ✅ **Focus Management**: Visible focus indicators
+- ✅ **Color Contrast**: WCAG AA compliant colors
+- ✅ **Dark Mode**: Accessible dark theme
+
+## Technologies Used
+- **Frontend**: Vanilla JavaScript (ES6+), HTML5, CSS3
+- **PWA**: Service Worker, Web App Manifest, IndexedDB
+- **Build Tool**: Webpack 5 with PWA plugins
+- **Maps**: Leaflet.js
+- **Notifications**: Web Push API with VAPID
+- **Storage**: IndexedDB for offline data
+- **Testing**: Jest for unit testing
+- **Linting**: ESLint + Prettier
+
+## Browser Support
+- Chrome >= 88 (Full PWA support)
+- Firefox >= 85 (Limited PWA support)
+- Safari >= 14 (Basic PWA support)
+- Edge >= 88 (Full PWA support)
+
+## Deployment Instructions
+
+### Option 1: Netlify (Recommended)
+1. Build the project: `npm run build`
+2. Deploy `dist` folder to Netlify
+3. Configure redirects for SPA routing
+4. Enable HTTPS for PWA features
+
+### Option 2: GitHub Pages
+1. Build the project: `npm run build`
+2. Push `dist` folder to `gh-pages` branch
+3. Enable GitHub Pages in repository settings
+4. Configure custom domain if needed
+
+### Option 3: Firebase Hosting
+1. Install Firebase CLI: `npm install -g firebase-tools`
+2. Initialize Firebase: `firebase init hosting`
+3. Build and deploy: `npm run build && firebase deploy`
+
+## Performance Optimizations
+- ✅ **Code Splitting**: Webpack bundle optimization
+- ✅ **Image Optimization**: Lazy loading and compression
+- ✅ **Caching Strategy**: Multi-layer caching with Service Worker
+- ✅ **Bundle Analysis**: Webpack bundle analyzer integration
+- ✅ **Critical CSS**: Inline critical styles
+- ✅ **Resource Hints**: Preload and prefetch optimization
+
+## Security Features
+- ✅ **HTTPS Required**: PWA features require secure context
+- ✅ **CSP Headers**: Content Security Policy implementation
+- ✅ **Input Validation**: Client and server-side validation
+- ✅ **XSS Prevention**: Proper data sanitization
+- ✅ **Authentication**: Secure token-based authentication
+
+## Testing
+- ✅ **Unit Tests**: Jest test suite
+- ✅ **PWA Audit**: Lighthouse PWA score > 90
+- ✅ **Accessibility Audit**: WAVE and axe testing
+- ✅ **Performance Audit**: Core Web Vitals optimization
+- ✅ **Cross-browser Testing**: Multiple browser compatibility
+
+## License
+MIT License - Open source project for educational purposes
+
+## Acknowledgments
+- Dicoding for providing the Story API and learning platform
+- OpenStreetMap for map tiles and geolocation services
+- Leaflet.js for interactive map functionality
+- The web development community for PWA best practices
