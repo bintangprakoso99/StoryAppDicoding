@@ -280,13 +280,32 @@ class App {
     await this.currentPage.render()
   }
 
-  setupNavigation() {
+  updateNavigation() {
+    const isAuthenticated = this.authModel.isAuthenticated()
     const logoutBtn = document.getElementById("logout-btn")
-    logoutBtn.addEventListener("click", () => {
-      this.authModel.logout()
-      this.updateNavigation()
-      this.router.navigate("/login")
-    })
+    const homeLink = document.getElementById("home-link")
+    const addStoryLink = document.getElementById("add-story-link")
+    const mapLink = document.getElementById("map-link")
+    const settingsLink = document.getElementById("settings-link")
+    const favoritesLink = document.getElementById("favorites-link")
+
+    if (isAuthenticated) {
+      // Show all navigation for authenticated users
+      if (logoutBtn) logoutBtn.style.display = "flex"
+      if (homeLink) homeLink.style.display = "flex"
+      if (addStoryLink) addStoryLink.style.display = "flex"
+      if (mapLink) mapLink.style.display = "flex"
+      if (settingsLink) settingsLink.style.display = "flex"
+      if (favoritesLink) favoritesLink.style.display = "flex"
+    } else {
+      // Hide navigation for non-authenticated users
+      if (logoutBtn) logoutBtn.style.display = "none"
+      if (homeLink) homeLink.style.display = "none"
+      if (addStoryLink) addStoryLink.style.display = "none"
+      if (mapLink) mapLink.style.display = "none"
+      if (settingsLink) settingsLink.style.display = "none"
+      if (favoritesLink) favoritesLink.style.display = "none"
+    }
   }
 
   checkAuthState() {
@@ -295,34 +314,6 @@ class App {
 
     if (!isAuthenticated && !window.location.hash.includes("login") && !window.location.hash.includes("register")) {
       this.router.navigate("/login")
-    }
-  }
-
-  updateNavigation() {
-    const isAuthenticated = this.authModel.isAuthenticated()
-    const logoutBtn = document.getElementById("logout-btn")
-    const homeLink = document.querySelector('a[href="#/home"]')
-    const addStoryLink = document.querySelector('a[href="#/add-story"]')
-    const mapLink = document.querySelector('a[href="#/map"]')
-    const settingsLink = document.querySelector('a[href="#/settings"]')
-    const favoritesLink = document.querySelector('a[href="#/favorites"]')
-
-    if (isAuthenticated) {
-      // Show all navigation for authenticated users
-      logoutBtn.style.display = "flex"
-      if (homeLink) homeLink.style.display = "flex"
-      if (addStoryLink) addStoryLink.style.display = "flex"
-      if (mapLink) mapLink.style.display = "flex"
-      if (settingsLink) settingsLink.style.display = "flex"
-      if (favoritesLink) favoritesLink.style.display = "flex"
-    } else {
-      // Hide navigation for non-authenticated users
-      logoutBtn.style.display = "none"
-      if (homeLink) homeLink.style.display = "none"
-      if (addStoryLink) addStoryLink.style.display = "none"
-      if (mapLink) mapLink.style.display = "none"
-      if (settingsLink) settingsLink.style.display = "none"
-      if (favoritesLink) favoritesLink.style.display = "none"
     }
   }
 
@@ -335,6 +326,15 @@ class App {
 
   redirectToHome() {
     this.router.navigate("/home")
+  }
+
+  setupNavigation() {
+    const logoutBtn = document.getElementById("logout-btn")
+    logoutBtn.addEventListener("click", () => {
+      this.authModel.logout()
+      this.updateNavigation()
+      this.router.navigate("/login")
+    })
   }
 }
 
